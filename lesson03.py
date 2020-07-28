@@ -48,7 +48,21 @@ directory_path = r"C:\Platform\test_dev02-master"
 ls(directory_path)
 
 
+import os
+from pathlib import Path
 
+def ls(directory_path):
+    names = os.listdir(directory_path)
+    for name in names:
+        print(name)
+        my_path = directory_path + '/' + name
+        my_file = Path(my_path)
+        if my_file.is_dir():
+            sub_directory_path = my_path
+            ls(sub_directory_path)
+
+directory_path = r"/Users/tonnycao/python/python_lesson"
+ls(directory_path)
 
 
 """
