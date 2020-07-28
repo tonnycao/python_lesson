@@ -1,425 +1,139 @@
-#### 流程控制 ###
+#### IO编程 ####
 
-- if else
+- 概述
 
   ```
-  python 中非0就是True，None 和 0 都是False
+  在计算机中，IO是Input/Output的简写，也就是输入和输出。
+  IO编程中，Stream（流）是一个很重要的概念，可以把流想象成一个水管，数据就是水管里的水，但是只能单向流动。Input Stream就是数据从外面（磁盘、网络）流进内存，Output Stream就是数据从内存流到外面去。对于浏览网页来说，浏览器和服务器之间至少需要建立两根水管，才可以既能发数据，又能收数据。程序和运行时数据是在内存中驻留，由CPU这个超快的计算核心来执行，涉及到数据交换的地方，通常是磁盘、网络等，就需要IO接口。
+  ```
+
   
-  if test expression:
-      Body of if
-  else:
-      Body of else
+
+- 文件操作
+
+  ```
+  读文件
+  
+  f = open('/Users/michael/test.txt', 'r')
+  f = open('/Users/michael/test.jpg', 'rb')
+  f = open('/Users/michael/gbk.txt', 'r', encoding='gbk')
+  f.read()
+  
+  for line in f.readlines():
+      print(line.strip())
       
-      
-  if test expression:
-      Body of if
-  elif test expression:
-      Body of elif
-  else: 
-      Body of else
-      
+  大文件读取
+  bigfile = open('bigfilename','r')
+  tmp_lines = bigfile.readlines(BUF_SIZE)
+  while tmp_lines:
+      process([line for line in tmp_lines])
+      tmp_lines = bigfile.readlines(BUF_SIZE)
   
-  
-  num = 3.4
-  
-  if num > 0:
-      print("Positive number")
-  elif num == 0:
-      print("Zero")
-  else:
-      print("Negative number")
+  写文件
+  with open('/Users/michael/test.txt', 'w') as f:
+      f.write('Hello, world!')
   ```
 
   
 
-- for
+- 目录
 
   ```
-  for val in sequence:
-  	Body of for
-  
-  numbers = [6, 5, 3, 8, 4, 2, 5, 4, 11]
-  
-  sum = 0
-  for val in numbers:
-  	sum = sum+val
-  print("The sum is", sum)
-  
-  
-  range()
-  
-  print(range(10))
-  
-  print(list(range(10)))
-  
-  print(list(range(2, 8)))
-  
-  print(list(range(2, 20, 3)))
-  
-  genre = ['pop', 'rock', 'jazz']
-  for i in range(len(genre)):
-  	print("I like", genre[i])
-  	
-  	
-  digits = [0, 1, 5]
-  
-  for i in digits:
-      print(i)
-  else:
-      print("No items left.")
-  
-  
-  
-  student_name = 'Soyuj'
-  
-  marks = {'James': 90, 'Jules': 55, 'Arthur': 77}
-  
-  for student in marks:
-      if student == student_name:
-          print(marks[student])
-          break
-  else:
-      print('No entry with that name found.')
-  	
+  目录的新建 重命名 移动 删除 路径 
+  os 模块的使用
+  import os
+  os.name # 操作系统类型
+  os.uname()
+  os.environ
+  os.environ.get('PATH')
+  os.path.abspath('.') # 查看当前目录的绝对路径
   ```
 
   
 
-- while
+- StringIO和BytesIO
 
   ```
-  while test_expression:
-      Body of while
-   
-   
-  n = 10
-  sum = 0
-  i = 1
+  StringIO 内存中读写字符串
+  from io import StringIO
+  f = StringIO()
+  f.write('hello')
+  f.getvalue()
   
-  while i <= n:
-      sum = sum + i
-      i = i+1 
+  f = StringIO('Hello!\nHi!\nGoodbye!')
+  while True:
+       s = f.readline()
+       if s == '':
+           break
+       print(s.strip())
   
-  print("The sum is", sum)
+  BytesIO 读写字节也就是二进制数据
   
+  from io import BytesIO
+  f = BytesIO()
+  f.write('中文'.encode('utf-8'))
   
-  
-  counter = 0
-  
-  while counter < 3:
-      print("Inside loop")
-      counter = counter + 1
-  else:
-      print("Inside else")
+  f = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
+  f.read()
   ```
 
   
 
-- break and continue
+- 序列化
 
   ```
-  在for while 循环中使用
+  我们把变量从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening，都是一个意思。
   
-  break 退出循环体
-  当 break 将控制流传出一个带有 finally 子句的 try 语句时，该 finally 子句会先被执行然后再真正离开该循环
+  pickle
   
-  continue 退出本地循环，继续下次循环
-  当 continue 将控制流传出一个带有 finally 子句的 try 语句时，该 finally 子句会先被执行然后再真正开始循环的下一个轮次。
+  pickle.dumps() 序列化bytes
   
-  for val in "string":
-      if val == "i":
-          break
-      print(val)
-  
-  print("The end")
+  import pickle
+  d = dict(name='Bob', age=20, score=88)
+  pickle.dumps(d)
   
   
+  pickle.load() 反序列化
   
-  for val in "string":
-      if val == "i":
-          continue
-      print(val)
-  
-  print("The end")
-  ```
-
-  
-
-- pass
-
-  ```
-  不做任何操作，占位符，以后可能需要做处理
-  
-  sequence = {'p', 'a', 's', 's'}
-  for val in sequence:
-      pass
+  f = open('dump.txt', 'wb')
+  pickle.dump(d, f)
+  f.close()
   
   
-  def function(args):
-      pass
+  
+  JSON
+  
+  JSON类型	Python类型
+  {}	dict
+  []	list
+  "string"	str
+  1234.56	 int或float
+  true/false	True/False
+  null	None
+  
+  
+  import json
+  d = dict(name='Bob', age=20, score=88)
+  json.dumps(d)
+  
+  json_str = '{"age": 20, "score": 88, "name": "Bob"}'
+  json.loads(json_str)
   ```
 
   
 
-- with
+  
+
+#### 作业 ####
+
+- 使用os模块实现 shell ls命令
+- 文件读取
+
+- 序列化
 
   ```
-  with 语句用于包装带有使用上下文管理器,定义的方法的代码块的执行。 这允许对普通的 try...except...finally 使用模式进行封装以方便地重用。
-  
-  
-  带有一个 with 语句的执行过程如下:
-  
-  对上下文表达式 (在 with_item 中给出的表达式) 求值以获得一个上下文管理器。
-  载入上下文管理器的 __enter__() 以便后续使用。
-  载入上下文管理器的 __exit__() 以便后续使用。
-  发起调用上下文管理器的 __enter__() 方法。
-  如果 with 语句中包含一个目标，来自 __enter__() 的返回值将被赋值给它。
-  
-  
-  上下文管理器 是一个对象，它定义了在执行 with 语句时要建立的运行时上下文。 上下文管理器处理进入和退出所需运行时上下文以执行代码块。 通常使用 with 语句，但是也可以通过直接调用它们的方法来使用。
-  
-  上下文管理器的典型用法包括保存和恢复各种全局状态，锁定和解锁资源，关闭打开的文件等等。
+  obj = dict(name='曹建', age=30)
   ```
 
   
-
-#### 函数 ####
-
-- 定义
-
-  ```
-  def function_name(parameters):
-  	    """docstring"""
-  	    pass
-  ```
-
-  
-
-- 参数
-
-  ```
-  常规传参
-  def enroll(name, gender):
-      print('name:', name)
-      print('gender:', gender)
-      
-  可变参数问题
-  def add_end(L=[]):
-      L.append('END')
-      return L
-      
-  默认参数
-  def greet(name, msg="Good morning!"):
-      """
-      This function greets to
-      the person with the
-      provided message.
-      If the message is not provided,
-      it defaults to "Good
-      morning!"
-      """
-  
-      print("Hello", name + ', ' + msg)
-  
-  
-  greet("Kate")
-  greet("Bruce", "How do you do?")
-  
-  可变参数
-  def greet(*names):
-      """This function greets all
-      the person in the names tuple."""
-  
-      # names is a tuple with arguments
-      for name in names:
-          print("Hello", name)
-  
-  
-  greet("Monica", "Luke", "Steve", "John")
-  
-  关键字参数
-  def person(name, age, **kw):
-      print('name:', name, 'age:', age, 'other:', kw)
-  ```
-
-  
-
-- 递归
-
-  ```
-  最大的递归深度 1000，超过会引起 RecursionError
-  
-  def recursor():
-      recursor()
-  recursor()
-  
-  
-  def factorial(x):
-      """This is a recursive function
-      to find the factorial of an integer"""
-  
-      if x == 1:
-          return 1
-      else:
-          return (x * factorial(x-1))
-  
-  
-  num = 3
-  print("The factorial of", num, "is", factorial(num))
-  ```
-
-  
-
-- 匿名函数
-
-  ```
-  lambda [arg1 [,arg2, ... argN]] : expression
-  
-  double = lambda x: x * 2
-  print(double(5))
-  
-  filter()
-  my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-  new_list = list(filter(lambda x: (x%2 == 0) , my_list))
-  print(new_list)
-  
-  map()
-  my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-  new_list = list(map(lambda x: x * 2 , my_list))
-  print(new_list)
-  ```
-
-  
-
-   
-
-- 全局参数与局部参数
-
-  ```
-  局部变量
-  
-  x = "global"
-  
-  def foo():
-      x = x * 2
-      print(x)
-  
-  foo()
-  
-  
-  def foo():
-      y = "local"
-  
-  
-  foo()
-  print(y)
-  
-  
-  全局变量
-  x = "global "
-  def foo():
-      global x
-      y = "local"
-      x = x * 2
-      print(x)
-      print(y)
-  
-  foo()
-  
-  
-  Nonlocal 变量
-  
-  语句会使得所列出的名称指向之前在最近的包含作用域中绑定的除全局变量以外的变量。 绑定的默认行为是先搜索局部命名空间。 这个语句允许被封装的代码重新绑定局部作用域以外且非全局（模块）作用域当中的变量。
-  
-  def outer():
-      x = "local"
-  
-      def inner():
-          nonlocal x
-          x = "nonlocal"
-          print("inner:", x)
-  
-      inner()
-      print("outer:", x)
-  
-  
-  outer()
-  ```
-
-  
-
-- 模块
-
-  ```
-  一般情况下一个python文件就是一个模块
-  
-  引用模块
-  import foo              # foo imported and bound locally
-  import foo.bar.baz      # foo.bar.baz imported, foo bound locally
-  import foo.bar.baz as fbb # foo.bar.baz imported and bound as fbb
-  from foo.bar import baz  # foo.bar.baz imported and bound as baz
-  from foo import attr    # foo imported and foo.attr bound as attr
-  
-  如果标识符列表改为一个星号 ('*')，则在模块中定义的全部公有名称都将按 import 语句所在的作用域被绑定到局部命名空间。
-  
-  
-  定义模块
-  #!/usr/bin/env python3
-  # -*- coding: utf-8 -*-
-  
-  ' a test module '
-  
-  __author__ = 'Michael Liao'
-  
-  import sys
-  
-  def test():
-      args = sys.argv
-      if len(args)==1:
-          print('Hello, world!')
-      elif len(args)==2:
-          print('Hello, %s!' % args[1])
-      else:
-          print('Too many arguments!')
-  
-  if __name__=='__main__':
-      test()
-  ```
-
-  
-
-- 包
-
-```
-目录和模块构成了包。目录中必须包含 __init__.py和子包或者模块文件。
-引用方式
-from Game.Level import start
-start.select_difficulty(2)
-
-from Game.Level.start import select_difficulty
-select_difficulty(2)
-```
-
-
-
-#### 课后作业 ####
-
-- 用匿名函数改造下面函数
-
-  ```
-  def is_odd(n):
-      return n % 2 == 1
-  
-  L = list(filter(is_odd, range(1, 20)))
-  ```
-
-- 熟悉常见模块
-
-  ```
-  math datetime collections base64 hashlib hmac itertools XML HTMLParser urllib
-  ```
-
-  
-
-- 定义一个模块 实现网址完整性的校验
 
