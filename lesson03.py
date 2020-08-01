@@ -16,38 +16,28 @@ else:
 
 
 """读取log文件，取出url并输出前10访问量的url"""
-file_path = r"C:\Learning\python_lesson\access.log"
+file_path = r"/Users/jimmy/PycharmProjects/python_lesson/access.log"
 with open(file_path, mode="r+", encoding='utf-8') as f:
     file_content = f.read()
-    urls = re.findall("http://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]", file_content)
+    urls = re.findall("POST.+HTTP/1.1|GET.+HTTP/1.1", file_content)
     dic = {}
     for url in urls:
         dic[url] = dic.get(url, 0) + 1
     t = zip(dic.values(), dic.keys())
     order = sorted(t, reverse=True)
-    for i in range(0, 10):
-        print(order[i])
-
+    i = 0
+    for o in order:
+        if "css" in o[1] or "js" in o[1] or "png" in o[1] or "jpg" in o[1] or "gif" in o[1] or "mp4" in o[1]:
+            continue
+        elif i < 10:
+            print(o)
+            i = i + 1
+        else:
+            break
 
 
 
 """使用os模块实现 shell ls命令"""
-import os
-
-
-def ls(directory_path):
-    names = os.listdir(directory_path)
-    for name in names:
-        print(name)
-        if "." not in name:
-            sub_directory_path = directory_path + "\\" + name
-            ls(sub_directory_path)
-
-
-directory_path = r"C:\Platform\test_dev02-master"
-ls(directory_path)
-
-
 import os
 from pathlib import Path
 
@@ -61,7 +51,7 @@ def ls(directory_path):
             sub_directory_path = my_path
             ls(sub_directory_path)
 
-directory_path = r"/Users/tonnycao/python/python_lesson"
+directory_path = r"/Users/jimmy/PycharmProjects/python_lesson"
 ls(directory_path)
 
 
