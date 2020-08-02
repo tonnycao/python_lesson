@@ -1,66 +1,3 @@
-## 错误与异常
-
-##### 错误
-
-```
-语法错误: 格式引起，不符合Python解析。
-```
-
-
-
-##### 系统异常
-
-```]
-即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误。
-```
-
-
-
-##### 异常处理
-
-```
-try 
- pass
-except 
- pass
-except
- raise
-else
-
-finally
-
-try 语句的工作原理如下。
-首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。
-如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。
-如果在执行try 子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和 except 关键字后面的异常匹配，则执行 except 子句 ，然后继续执行 try 语句之后的代码。
-如果发生的异常和 except 子句中指定的异常不匹配，则将其传递到外部的 try 语句中；如果没有找到处理程序，则它是一个 未处理异常，执行将停止并显示如上所示的消息。
-一个 try 语句可能有多个 except 子句，以指定不同异常的处理程序。 最多会执行一个处理程序。 处理程序只处理相应的 try 子句中发生的异常，而不处理同一 try 语句内其他处理程序中的异常。
-
-finally 在异常抛出前执行
-```
-
-
-
-##### 自定义异常
-
-```
-
-```
-
-
-
-##### 参考
-
-```
-https://docs.python.org/zh-cn/3.7/tutorial/errors.html
-https://docs.python.org/zh-cn/3.7/library/exceptions.html
-https://www.programiz.com/python-programming/exceptions
-```
-
-
-
-
-
 ## 面向对象
 
 ##### 基本概念 
@@ -97,11 +34,11 @@ class Employee(object):
       
    #成员函数
    def displayCount(self):
-     print "Total Employee %d" % Employee.empCount
+     print("Total Employee %d" % Employee.empCount)
      
    #成员函数
    def displayEmployee(self):
-      print "Name : ", self.name,  ", Salary: ", self.salary
+      print("Name : ", self.name,  ", Salary: ", self.salary)
       
 
 ```
@@ -132,7 +69,7 @@ emp2 = Employee("Manni", 5000)
 
 emp1.displayEmployee()
 emp2.displayEmployee()
-print "Total Employee %d" % Employee.empCount
+print("Total Employee %d" % Employee.empCount)
 
 
 # 添加，删除，修改类的属性
@@ -144,10 +81,10 @@ del emp1.age  # 删除 'age' 属性
 
 可以使用以下函数的方式来访问属性：
 
-getattr(obj, name[, default]) : 访问对象的属性。
-hasattr(obj,name) : 检查是否存在一个属性。
-setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。
-delattr(obj, name) : 删除属性。
+getattr(obj, name[, default]); 访问对象的属性。
+hasattr(obj,name); 检查是否存在一个属性。
+setattr(obj,name,value); 设置一个属性。如果属性不存在，会创建一个新属性。
+delattr(obj, name);删除属性。
 
 hasattr(emp1, 'age')    # 如果存在 'age' 属性返回 True。
 getattr(emp1, 'age')    # 返回 'age' 属性的值
@@ -169,11 +106,11 @@ __module__: 类定义所在的模块（类的全名是'__main__.className'，如
 __bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组）
 
 
-print "Employee.__doc__:", Employee.__doc__
-print "Employee.__name__:", Employee.__name__
-print "Employee.__module__:", Employee.__module__
-print "Employee.__bases__:", Employee.__bases__
-print "Employee.__dict__:", Employee.__dict__
+print("Employee.__doc__:"), Employee.__doc__
+print("Employee.__name__:"), Employee.__name__
+print("Employee.__module__:"), Employee.__module__
+print("Employee.__bases__:"), Employee.__bases__
+print("Employee.__dict__:"), Employee.__dict__
 ```
 
 
@@ -202,12 +139,12 @@ class Point:
       self.y = y
    def __del__(self):
       class_name = self.__class__.__name__
-      print class_name, "销毁"
+      print(class_name, "销毁")
  
 pt1 = Point()
 pt2 = pt1
 pt3 = pt1
-print id(pt1), id(pt2), id(pt3) # 打印对象的id
+print(id(pt1), id(pt2), id(pt3)) # 打印对象的id
 del pt1
 del pt2
 del pt3
@@ -229,23 +166,23 @@ class SubClassName (ParentClass1[, ParentClass2, ...]):
  class Parent:        # 定义父类
    parentAttr = 100
    def __init__(self):
-      print "调用父类构造函数"
+      print("调用父类构造函数")
  
    def parentMethod(self):
-      print '调用父类方法'
+      print('调用父类方法')
  
    def setAttr(self, attr):
       Parent.parentAttr = attr
  
    def getAttr(self):
-      print "父类属性 :", Parent.parentAttr
+      print("父类属性 :", Parent.parentAttr)
  
 class Child(Parent): # 定义子类
    def __init__(self):
-      print "调用子类构造方法"
+      print("调用子类构造方法")
  
    def childMethod(self):
-      print '调用子类方法'
+      print('调用子类方法')
  
 c = Child()          # 实例化子类
 c.childMethod()      # 调用子类的方法
@@ -268,11 +205,11 @@ isinstance(obj, Class) 布尔函数如果obj是Class类的实例对象或者是�
 ```
 class Parent:        # 定义父类
    def myMethod(self):
-      print '调用父类方法'
+      print('调用父类方法')
  
 class Child(Parent): # 定义子类
    def myMethod(self):
-      print '调用子类方法'
+      print('调用子类方法')
  
 c = Child()          # 子类实例
 c.myMethod()  
@@ -332,13 +269,13 @@ class JustCounter:
     def count(self):
         self.__secretCount += 1
         self.publicCount += 1
-        print self.__secretCount
+        print(self.__secretCount)
  
 counter = JustCounter()
 counter.count()
 counter.count()
-print counter.publicCount
-print counter.__secretCount  # 报错，实例不能访问私有变量
+print(counter.publicCount)
+print(counter.__secretCount)  # 报错，实例不能访问私有变量
 
 Python不允许实例化的类访问私有数据，但你可以使用 object._className__attrName（ 对象名._类名__私有属性名 ）访问属性，参考以下实例：
 
@@ -346,7 +283,7 @@ class ClassName:
     __site = "this is private"
 
 pp = ClassName()
-print pp._ClassName__site
+print(pp._ClassName__site)
 
 class Student(object):
 
@@ -395,6 +332,61 @@ Weekday(6).value
 Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
 for name, member in Month.__members__.items():
     print(name, '=>', member, ',', member.value)
+```
+
+
+
+
+
+### 错误与异常
+
+##### 错误
+
+```
+语法错误: 格式引起，不符合Python解析。
+```
+
+
+
+##### 系统异常
+
+```]
+即使语句或表达式在语法上是正确的，但在尝试执行时，它仍可能会引发错误。
+```
+
+
+
+##### 异常处理
+
+```
+try 
+ pass
+except 
+ pass
+except
+ raise
+else
+
+finally
+
+try 语句的工作原理如下。
+首先，执行 try 子句 （try 和 except 关键字之间的（多行）语句）。
+如果没有异常发生，则跳过 except 子句 并完成 try 语句的执行。
+如果在执行try 子句时发生了异常，则跳过该子句中剩下的部分。然后，如果异常的类型和 except 关键字后面的异常匹配，则执行 except 子句 ，然后继续执行 try 语句之后的代码。
+如果发生的异常和 except 子句中指定的异常不匹配，则将其传递到外部的 try 语句中；如果没有找到处理程序，则它是一个 未处理异常，执行将停止并显示如上所示的消息。
+一个 try 语句可能有多个 except 子句，以指定不同异常的处理程序。 最多会执行一个处理程序。 处理程序只处理相应的 try 子句中发生的异常，而不处理同一 try 语句内其他处理程序中的异常。
+
+finally 在异常抛出前执行
+```
+
+
+
+##### 参考
+
+```
+https://docs.python.org/zh-cn/3.7/tutorial/errors.html
+https://docs.python.org/zh-cn/3.7/library/exceptions.html
+https://www.programiz.com/python-programming/exceptions
 ```
 
 
