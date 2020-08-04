@@ -106,11 +106,11 @@ __module__: 类定义所在的模块（类的全名是'__main__.className'，如
 __bases__ : 类的所有父类构成元素（包含了一个由所有父类组成的元组）
 
 
-print("Employee.__doc__:"), Employee.__doc__
-print("Employee.__name__:"), Employee.__name__
-print("Employee.__module__:"), Employee.__module__
-print("Employee.__bases__:"), Employee.__bases__
-print("Employee.__dict__:"), Employee.__dict__
+print(Employee.__doc__:), Employee.__doc__
+print(Employee.__name__:), Employee.__name__
+print(Employee.__module__:), Employee.__module__
+print(Employee.__bases__:), Employee.__bases__
+print(Employee.__dict__:), Employee.__dict__
 ```
 
 
@@ -231,6 +231,7 @@ c.myMethod()
 对象比较
 简单的调用方法 : cmp(obj, x)
 
+__liter__()
 
 class Vector:
    def __init__(self, a, b):
@@ -298,7 +299,11 @@ class Student(object):
         if value < 0 or value > 100:
             raise ValueError('score must between 0 ~ 100!')
         self._score = value
-        
+ 
+s = Student()
+s.score = 90
+print(s.score)
+
 单下划线、双下划线、头尾双下划线说明：
 __foo__: 定义的是特殊方法，一般是系统定义名字 ，类似 __init__() 之类的。
 
