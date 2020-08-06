@@ -9,7 +9,7 @@
 
 ```
 
-![20170928110355446](/Users/panchengxian/sites/python_lesson/20170928110355446.png)
+![20170928110355446](20170928110355446.png)
 
 ##### 存储引擎
 
@@ -24,7 +24,7 @@ INNODB：行锁级，支持事务，适合读多写多的项目。
 
 ##### 语句
 
-![20170928110411496](/Users/panchengxian/sites/python_lesson/20170928110411496.jpg)
+![20170928110411496](20170928110411496.jpg)
 
 ##### 索引
 
@@ -59,6 +59,7 @@ SET AUTOCOMMIT=1 开启自动提交
 普通索引（辅助索引）
 CREATE INDEX indexName ON mytable(username); 
 ALTER table tableName ADD INDEX indexName(columnName);
+
 CREATE TABLE mytable(
 ID INT NOT NULL,
 username VARCHAR(16) NOT NULL,
@@ -110,11 +111,160 @@ COUNT()
 4. 使用压测工具和分析工具
 ```
 
-![1680d23c8e041b32](/Users/panchengxian/sites/python_lesson/1680d23c8e041b32.png)
+![1680d23c8e041b32](1680d23c8e041b32.png)
 
 
 
-## SQLAlchemy  ##
+## Python与MySQL  ##
+
+##### pymysql
+
+```python
+# 安装
+pip3 install PyMySQL
+# 实例
+import pymysql
+
+# 打开数据库连接
+db = pymysql.connect("localhost","root","rootroot","test" )
+ 
+# 使用 cursor() 方法创建一个游标对象 cursor
+cursor = db.cursor()
+# 使用 execute()  方法执行 SQL 查询 
+cursor.execute("SELECT VERSION()")
+# 使用 fetchone() 方法获取单条数据.
+data = cursor.fetchone()
+ 
+print ("Database version : %s " % data)
+ 
+# 关闭数据库连接
+db.close()
+
+# mysql 基类
+class MySql:
+    logfile = LOG_PATH + '/mysql.log'
+
+    def __init__(self, host, user, passwd, port, db, charset, table):
+        self.host = host
+        self.user = user
+        self.passwd = passwd
+        self.port = port
+        self.db = db
+        self.charset = charset
+        self.table = table
+        self._connect()
+
+    def _connect(self):
+        self.connect = pymysql.connect(host=self.host, user=self.user, password=self.passwd, port=self.port, db=self.db,
+                                       charset=self.charset)
+        self.cursor = self.connect.cursor()
+
+    def execute_sql_with_one_data(self, sql):
+        row = None
+        try:
+            self.cursor.execute(sql)
+            row = self.cursor.fetchone()
+        except Exception as e:
+            file = open(self.logfile, 'a+', encoding='utf8')
+            file.write(sql + '\n')
+            file.write(str(e) + '\n')
+            self.connect.rollback()
+        return row
+
+    def execute_sql_with_many_data(self, sql, size=100):
+        rows = None
+        try:
+            self.cursor.execute(sql)
+            rows = self.cursor.fetchmany(size)
+        except Exception as e:
+            file = open(self.logfile, 'a+', encoding='utf8')
+            file.write(sql + '\n')
+            file.write(str(e) + '\n')
+            self.connect.rollback()
+        return rows
+
+    def execute_sql_with_id(self, sql):
+        last_id = 0
+        try:
+            if self.cursor.execute(sql):
+                self.connect.commit()
+                last_id = self.cursor.lastrowid
+        except Exception as e:
+            file = open(self.logfile, mode='a+', encoding='utf8')
+            file.write(sql+'\n')
+            file.write(str(e) + '\n')
+            self.connect.rollback()
+        return last_id
+
+    def execute_sql_without_data(self, sql):
+        try:
+            if self.cursor.execute(sql):
+                self.connect.commit()
+        except Exception as e:
+            file = open(self.logfile, 'a+', encoding='utf8')
+            file.write(sql + '\n')
+            file.write(str(e) + '\n')
+            self.connect.rollback()
+
+    def close(self):
+        self.cursor.close()
+        self.connect.close()
+
+        
+```
+
+##### sqlalchemy
+
+```
+pip3 install sqlalchemy
+
+sqlalchemy是mysql的ORM
+
+import sqlalchemy
+sqlalchemy.__version__
+
+from sqlalchemy import create_engine
+engine = create_engine('mysql+pymysql://root:rootroot@localhost:3306/db_example?charset=utf8mb4', pool_recycle=3600)
+
+from sqlalchemy import Column, String, Integer,create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+# 创建对象的基类:
+Base = declarative_base()
 
 
+class City(Base):
+    # 表的名字:
+    __tablename__ = 'city'
+
+    # 表的结构:
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    population = Column(Integer)
+    state = Column(String(255))
+
+
+DBSession = sessionmaker(bind=engine)
+
+
+session = DBSession()
+# 创建新User对象:
+new_one = City(id='10', name='Beijing', population=10, state='Beijin')
+# 添加到session:
+session.add(new_one)
+# 提交即保存到数据库:
+session.commit()
+# 关闭session:
+session.close()
+```
+
+
+
+##### 作业
+
+```
+利用sqlalchemy存储这三个文件
+https://share.weiyun.com/wO86xTYL
+```
 
