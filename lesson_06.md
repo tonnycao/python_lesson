@@ -213,7 +213,7 @@ class MySql:
         
 ```
 
-##### sqlalchemy
+##### SQLAlchemy
 
 ```
 pip3 install sqlalchemy
