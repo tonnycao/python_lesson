@@ -151,6 +151,8 @@
   Base = declarative_base()
   
   
+  Entiry-Relation
+  
   # ======多对多示例=======
   class Book(Base):
       __tablename__ = "book"
@@ -270,6 +272,7 @@
   Session = scoped_session(session_factory)
   # 实例化(相当于实现了一个单例模式)
   session = Session()
+  session1 = Session()
   # session2 = Session() --> session is session2
   
   
