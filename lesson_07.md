@@ -552,5 +552,23 @@ print(tag_obj.books)
 
 
 
+##### 推荐项目结构
+
+- Root 根目录
+- ----bin 可执行文件目录 
+- ----config 配置文件目录
+- ----data 存储输入文件目录（权限读写）
+- ----lib 类库文件目录
+- ----handle 处理业务目录
+- ----tests 测试目录
+- ----log 日志文件目录（权限读写）
 
 
+
+##### 参考
+
+https://docs.sqlalchemy.org/en/13/orm/tutorial.html
+
+https://docs.python.org/zh-cn/3.7/library/index.html
+
+https://zhuanlan.zhihu.com/p/27400862
