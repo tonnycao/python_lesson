@@ -21,7 +21,7 @@ def drop_table():
 def parse_gmacc():
     drop_table()
     create_table()
-    parse_file()
+    # parse_file()
 
 
 def parse_file():
@@ -85,4 +85,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    create_table()

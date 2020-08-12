@@ -1,9 +1,11 @@
 from typing import List
 import csv
 from .parser import Parser
+import pandas as pd
 
 
 class CsvParser(Parser):
+    call_counter = 0
 
     def __init__(self, path, delimiter=None):
         self.rows = 0
@@ -27,5 +29,18 @@ class CsvParser(Parser):
 
         return data
 
-    def chunk_reader(self, max_rows) -> List:
-        pass
+    def chunk_reader(self, chunk_size=1024) -> List:
+        CsvParser.call_counter += 1
+        i = 0
+        data = []
+        for df in pd.read_csv(self.path, chunksize=chunk_size,
+                              delimiter=self.delimiter, encoding='utf-8'):
+
+            for row in df:
+                if CsvParser.call_counter == 0 and i > 0:
+                    data.append(row)
+                elif CsvParser.call_counter > 0:
+                    data.append(row)
+                i += 1
+
+        return data
