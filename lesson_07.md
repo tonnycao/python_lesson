@@ -10,7 +10,7 @@
 - Schema/Types 架构和类型
 - SQL Expression Language SQL表达式语言
 
-![1449477-20190103084603848-1423569374](1449477-20190103084603848-1423569374.png)
+![sqlalchemy_architecture](./images/sqlalchemy_architecture.png)
 
 
 

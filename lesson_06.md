@@ -9,7 +9,7 @@
 
 ```
 
-![20170928110355446](20170928110355446.png)
+![mysql_architecture](./images/mysql_architecture.png)
 
 ##### 存储引擎
 
@@ -24,7 +24,7 @@ INNODB：行锁级，支持事务，适合读多写多的项目。
 
 ##### 语句
 
-![20170928110411496](20170928110411496.jpg)
+![mysql_query](./images/mysql_query.jpg)
 
 ##### 索引
 
@@ -111,7 +111,7 @@ COUNT()
 4. 使用压测工具和分析工具
 ```
 
-![1680d23c8e041b32](1680d23c8e041b32.png)
+![mysql](./images/mysql.png)
 
 
 
