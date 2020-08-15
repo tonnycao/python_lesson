@@ -100,7 +100,16 @@
 
   ```
   pip3 freeze > requirements.txt
-  
+  #
+  export PYTHONDONTWRITEBYTECODE=1
+  export PYTHONPYCACHEPREFIX=/tmp
+  #python解释器的工作顺序：
+  #1 完成模块的加载和链接；
+  #2 将源代码编译为PyCodeObject对象(即字节码)，写入内存中，供CPU读取；
+  #3 从内存中读取并执行，结束后将PyCodeObject写回硬盘当中，也就是复制到.pyc或.pyo文件中，以保存当前目录下所有脚本的字节码文件；
+  #4 之后若再次执行该脚本，它先检查【本地是否有上述字节码文件】和【该字节码文件的修改时间是否与其脚本一致】。是就直接执行，否则重复#上述步骤。
+  #不产生 __pycache__ 目录
+  python3 -B foo.py
   ```
 
   
