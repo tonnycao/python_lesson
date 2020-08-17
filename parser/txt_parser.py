@@ -26,7 +26,9 @@ class TxtParser(Parser):
         return data
 
     def chunk_reader(self, max_rows) -> List:
-        pass
+        with open(self.path) as f:
+            for piece in self.read_in_chunks(f):
+                pass
 
     def read_in_chunks(file_object, chunk_size=1024):
         """Lazy function (generator) to read a file piece by piece.
@@ -37,6 +39,4 @@ class TxtParser(Parser):
                 break
             yield data
 
-    with open('really_big_file.dat') as f:
-        for piece in read_in_chunks(f):
-            pass
+

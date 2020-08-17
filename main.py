@@ -1,6 +1,7 @@
 from __future__ import annotations
 import pprint
 import time
+import codecs
 from parser.parser import Parser
 from parser.csv_parser import CsvParser
 from parser.txt_parser import TxtParser
@@ -11,6 +12,31 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy import inspect
 from sqlalchemy.ext.declarative import declarative_base
+
+
+def check_excel_type(file_path):
+    xlsx_sig = b'\x50\x4B\x05\06'
+    xls_sig = b'\x09\x08\x10\x00\x00\x06\x05\x00'
+
+    filenames = [
+        (file_path, 0, 512, 8),
+        (file_path, 2, -22, 4)]
+
+    for filename, whence, offset, size in filenames:
+        with open(filename, 'rb') as f:
+            f.seek(offset, whence)  # Seek to the offset.
+            bytes = f.read(size)  # Capture the specified number of bytes.
+            types = None
+            codecs.getencoder('hex')(bytes)
+
+            if bytes == xls_sig:
+                types = 'xls'
+            elif bytes == xlsx_sig:
+                types = 'xlsx'
+            else:
+                types = ''
+
+    return types
 
 
 def timeit(method):

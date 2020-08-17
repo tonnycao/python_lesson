@@ -136,7 +136,7 @@ def drop_table():
 def parse_file():
     data = []
     i = 0
-    with open("D186.xls", mode='r', encoding='utf-8') as f:
+    with open("D186", mode='r', encoding='utf-8') as f:
         lines = f.readlines()
         i = 0
         for line in lines:
