@@ -194,11 +194,24 @@ class csvdataStore(Base):
         session = DBSession()
         # 写入数据
         try:
-            for i in range(len(list)):
-                session.execute('INSERT INTO csv_table (sales_organisation_cd, apple_id, cust_id, legal_name, price_grp_cd, auth_description, billing_block_cd, order_block_cd, delivery_block_cd, posting_block_cd, sales_block_cd, marked_for_delete_ind, acct_status_cd) '
-                                'VALUES (:aa, :bb, :cc, :dd, :ee, :ff, :gg, :hh, :ii, :jj, :kk, :ll, :mm)',
-                         ({'aa': list[i][0], 'bb': list[i][1], 'cc': list[i][2], 'dd': list[i][3], 'ee': list[i][4], 'ff': list[i][5], 'gg': list[i][6], 'hh': list[i][7], 'ii': list[i][8], 'jj': list[i][9], 'kk': list[i][10], 'll': list[i][11], 'mm': list[i][12]}))
-                session.commit()
+            for i in list:
+                ed_user = Gmacc(
+                    sales_organisation_cd=i[0],
+                    apple_id=i[1],
+                    cust_id=i[2],
+                    legal_name=i[3].replace('"', ''),
+                    price_grp_cd=i[4],
+                    auth_description=i[5],
+                    billing_block_cd=i[6],
+                    order_block_cd=i[7],
+                    delivery_block_cd=i[8],
+                    posting_block_cd=i[9],
+                    sales_block_cd=i[10],
+                    marked_for_delete_ind=i[11],
+                    acct_status_cd=i[12]
+                )
+
+            session.commit()
         except:
             session.rollback()
         finally:
