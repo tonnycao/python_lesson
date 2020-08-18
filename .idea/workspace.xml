@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e8b5e66-c1cb-48f4-87ef-fed6c1fce109" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Project01/csvDataStore.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/csvDataStore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flaskapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/foobar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_08.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
