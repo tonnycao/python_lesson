@@ -136,7 +136,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return "<span style='color:red'>I am app 1</span>"
-    
+
+if __name__ == '__main__':
+    app.run()
+
+
 # mysite_nginx.conf
 
 # the upstream component nginx needs to connect to
@@ -196,6 +200,5 @@ stats = 127.0.0.1:9191
 - https://exploreflask.com/en/latest/preface.html
 - https://dormousehole.readthedocs.io/en/latest
 - https://docs.python.org/zh-cn/3/howto/functional.html
-- https://github.com/pxzhang/awesome-flask
 - http://wsgi.tutorial.codepoint.net/application-interface
 - https://uwsgi-docs.readthedocs.io/en/latest
