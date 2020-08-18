@@ -51,7 +51,7 @@
   pip3 install pip -U
   pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   
-  #豆瓣：https://pypi.doubanio.com/simple/
+  #豆瓣：https://pypi.doubanio.com/simple
   #清华：https://pypi.tuna.tsinghua.edu.cn/simple
   
   #搜索包
