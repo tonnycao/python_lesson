@@ -28,7 +28,7 @@ from sqlalchemy import Column, String, create_engine, Float, MetaData, Table, In
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('mysql+pymysql://root:P4ssword@localhost:3306/QA?charset=utf8', pool_recycle=10000)
+engine = create_engine('mysql+pymysql://root:rootroot@localhost:3306/db_example?charset=utf8', pool_recycle=10000)
 Base = declarative_base()
 metadata = MetaData(engine)
 
@@ -62,7 +62,7 @@ def drop_table():
 def csvdataStore():
     drop_table()
     create_table()
-    csv_file = r'/Users/jimmy/downloads/bmt_pp_gmacc_May20_CommaDelimited.csv'
+    csv_file = './../gmacc.csv'
     data = readData(csv_file)
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
