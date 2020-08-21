@@ -2,6 +2,8 @@ from __future__ import annotations
 import pprint
 import time
 import codecs
+import math
+
 from parser.parser import Parser
 from parser.csv_parser import CsvParser
 from parser.txt_parser import TxtParser
@@ -59,6 +61,7 @@ class Context():
         self._strategy = strategy
         self.session = session
         self.columns = columns
+        self.rows = 0
 
     @property
     def strategy(self) -> Parser:
@@ -69,8 +72,16 @@ class Context():
         self._strategy = strategy
 
     @timeit
+    def chunk_read_data(self, max_rows):
+        result = self._strategy.chunk_reader(max_rows)
+        self.rows = self._strategy.rows
+        return result, self._strategy.count
+
+    @timeit
     def read_data(self) -> List:
         result = self._strategy.reader()
+        self.rows = self._strategy.rows
+
         return result
 
     @staticmethod
@@ -106,7 +117,7 @@ class Context():
 
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+pymysql://root:@localhost:3306/db_example?charset=utf8mb4', pool_recycle=3600)
+    engine = create_engine('mysql+pymysql://root:rootroot@localhost:3306/db_example?charset=utf8mb4', pool_recycle=3600)
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
     mapper = inspect(Gmacc)
@@ -126,6 +137,16 @@ if __name__ == '__main__':
         'marked_for_delete_ind',
         'acct_status_cd'
     ]
-    cc = Context(session, gmacc_column, CsvParser('gmacc.csv'))
-    data = cc.read_data()
-    cc.storage_data_batch(Gmacc, data)
+
+    cc = Context(session, gmacc_column, TxtParser('D186', "\t"))
+
+    ss = 223319
+    total = math.ceil(ss/1024)
+    ii = 0
+    while ii < total:
+        ii += 1
+        data, t = cc.chunk_read_data(1024)
+        print(t)
+    print(TxtParser.count)
+
+    # cc.storage_data_batch(Gmacc, data)
