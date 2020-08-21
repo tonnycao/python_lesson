@@ -3,6 +3,8 @@ import pprint
 import time
 import codecs
 import math
+import sys
+
 
 from parser.parser import Parser
 from parser.csv_parser import CsvParser
@@ -137,8 +139,9 @@ if __name__ == '__main__':
         'marked_for_delete_ind',
         'acct_status_cd'
     ]
+    file = sys.argv[0]
 
-    cc = Context(session, gmacc_column, TxtParser('D186', "\t"))
+    cc = Context(session, gmacc_column, TxtParser(file, "\t"))
 
     ss = 223319
     total = math.ceil(ss/1024)
