@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Flasker{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if current_user %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+</div>
+<div class="post-tabs">
+    <ul class="nav nav-tabs">
+
+    </ul>
+</div>
+{% endblock %}
