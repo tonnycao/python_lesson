@@ -1,0 +1,7 @@
+*.ipynb
+.DS_Store
+.ipynb_checkpoints
+.idea
+*.pyc
+venv
+migrations

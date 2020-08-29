@@ -1,0 +1,33 @@
+{% import 'page.html' as pg%}
+{% extends "base.html" %}
+
+{% block title %}Flasker{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if current_user %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+</div>
+<div class="table-responsive">
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>人口</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for s in current_user.city %}
+          <tr>
+          <td>{{ s.name }}</td>
+          <td>{{ s.population }}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+
+  </table>
+    <div>
+     {{ pg.page(current_user.pagination,current_user.endpoint)}}
+    </div>
+</div>
+{% endblock %}
