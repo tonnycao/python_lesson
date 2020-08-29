@@ -22,7 +22,7 @@ a, b, c = 5, 3.2, "Hello"
 x = y = z = "same"
 
 ```
- 
+
 
 
 ##### 常量 #####
@@ -71,7 +71,7 @@ float_2 = 1.5e2
 #Complex Literal 
 x = 3.14j
 
-``` 
+```
 
 
 - 字符串类型
@@ -113,7 +113,6 @@ vowels = {'a', 'e', 'i' , 'o', 'u'} #set
 
 #### 字符串 string ####
 - string 
-- 
 #### 布尔类型 boolean ####
 - True
 - False 
@@ -122,8 +121,8 @@ vowels = {'a', 'e', 'i' , 'o', 'u'} #set
 
 - List 数组
 - Set 一个无序不重复元素集
-- Dictionary 字典
-- Tuple 不可变的有序数组
+- Dictionary 字典{"key":"value"}
+- Tuple 不可变的有序数组()
 
 #### 数据类型之间的转换 ####
 
