@@ -2,5 +2,8 @@
 .DS_Store
 .ipynb_checkpoints
 .idea
+<<<<<<< HEAD
 *.pyc
+=======
+>>>>>>> 6428f6d635cdd0987c76902874193f597d59de0a
 venv
