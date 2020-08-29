@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%import '_macros.html' as macros%}
+
+
+{% block page_content %}
+
+<table class="table table-hover">
+    <thead>
+        <th class="active">No</th>
+        <th class="active">Sales Organisation CD</th>
+        <th class="active">Apple ID</th>
+        <th class="active">Cust ID</th>
+        <th class='active'>Legal Name</th>
+        <th class="active">Price GRP CD</th>
+        <th class="active">Auth Description</th>
+        <th class="active">Billing Block CD</th>
+        <th class="active">Order Block CD</th>
+        <th class='active'>Delivery Block CD</th>
+        <th class="active">Posting Block CD</th>
+        <th class="active">Sales Block CD</th>
+        <th class="active">Marked For Delete Ind</th>
+        <th class="active">Acct Status CD</th>
+    </thead>
+    <tbody>
+        {% for record in csvlists %}
+            </tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ record.sales_organisation_cd }}</td>
+                <td>{{ record.apple_id }}</td>
+                <td>{{ record.cust_id }}</td>
+                <td>{{ record.legal_name }}</td>
+                <td>{{ record.price_grp_cd }}</td>
+                <td>{{ record.auth_description }}</td>
+                <td>{{ record.billing_block_cd }}</td>
+                <td>{{ record.order_block_cd }}</td>
+                <td>{{ record.apple_id }}</td>
+                <td>{{ record.create_time }}</td>
+                <td>{{ record.sales_block_cd }}</td>
+                <td>{{ record.sales_organisation_cd }}</td>
+                <td>{{ record.acct_status_cd }}</td>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{%if pagination%}
+{{macros.pagination_widget(pagination,'show_csv_list')}}
+{%endif%}
+{% endblock %}
+

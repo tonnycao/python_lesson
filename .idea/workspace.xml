@@ -20,16 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e8b5e66-c1cb-48f4-87ef-fed6c1fce109" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/sqlalchemy_architecture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson_07.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson_08.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson_09.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python_lesson.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_lesson.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/mysql.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/mysql.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/mysql_architecture.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/mysql_architecture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/mysql_query.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/mysql_query.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_06.md" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_06.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project01/csvDataStore.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project01/csvDataStore.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +52,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.xlsDataStore">
+  <component name="RunManager" selected="Python.csvDataStore">
     <configuration name="csvDataStore" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_lesson" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.xlsDataStore" />
         <item itemvalue="Python.csvDataStore" />
+        <item itemvalue="Python.xlsDataStore" />
         <item itemvalue="Python.lesson06" />
         <item itemvalue="Python.lession_o6" />
         <item itemvalue="Python.lesson03" />
@@ -203,35 +197,35 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1419" height="122" key="GridCell.Tab.0.bottom" timestamp="1597837325939">
+    <state width="1419" height="122" key="GridCell.Tab.0.bottom" timestamp="1598695106675">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state width="1419" height="99" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597672414673" />
-    <state width="1419" height="122" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1597837325939" />
+    <state width="1419" height="122" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1598695106675" />
     <state width="1419" height="235" key="GridCell.Tab.0.bottom/0.23.1440.812/-1920.23.1920.1057@0.23.1440.812" timestamp="1596276471708" />
     <state width="1419" height="51" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1596974567240" />
     <state width="1419" height="349" key="GridCell.Tab.0.bottom/0.23.1920.992@0.23.1920.992" timestamp="1596285456441" />
-    <state width="1419" height="122" key="GridCell.Tab.0.center" timestamp="1597837325938">
+    <state width="1419" height="122" key="GridCell.Tab.0.center" timestamp="1598695106674">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state width="1419" height="99" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597672414671" />
-    <state width="1419" height="122" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1597837325938" />
+    <state width="1419" height="122" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1598695106674" />
     <state width="1419" height="235" key="GridCell.Tab.0.center/0.23.1440.812/-1920.23.1920.1057@0.23.1440.812" timestamp="1596276471708" />
     <state width="1419" height="51" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1596974567239" />
     <state width="1419" height="349" key="GridCell.Tab.0.center/0.23.1920.992@0.23.1920.992" timestamp="1596285456440" />
-    <state width="1419" height="122" key="GridCell.Tab.0.left" timestamp="1597837325938">
+    <state width="1419" height="122" key="GridCell.Tab.0.left" timestamp="1598695106674">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state width="1419" height="99" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597672414671" />
-    <state width="1419" height="122" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1597837325938" />
+    <state width="1419" height="122" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1598695106674" />
     <state width="1419" height="235" key="GridCell.Tab.0.left/0.23.1440.812/-1920.23.1920.1057@0.23.1440.812" timestamp="1596276471707" />
     <state width="1419" height="51" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1596974567239" />
     <state width="1419" height="349" key="GridCell.Tab.0.left/0.23.1920.992@0.23.1920.992" timestamp="1596285456440" />
-    <state width="1419" height="122" key="GridCell.Tab.0.right" timestamp="1597837325939">
+    <state width="1419" height="122" key="GridCell.Tab.0.right" timestamp="1598695106675">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
     <state width="1419" height="99" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597672414672" />
-    <state width="1419" height="122" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1597837325939" />
+    <state width="1419" height="122" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1598695106675" />
     <state width="1419" height="235" key="GridCell.Tab.0.right/0.23.1440.812/-1920.23.1920.1057@0.23.1440.812" timestamp="1596276471708" />
     <state width="1419" height="51" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1596974567240" />
     <state width="1419" height="349" key="GridCell.Tab.0.right/0.23.1920.992@0.23.1920.992" timestamp="1596285456440" />
@@ -259,10 +253,10 @@
     <state width="1419" height="250" key="GridCell.Tab.1.right/0.23.1440.812/-1920.23.1920.1057@0.23.1440.812" timestamp="1596275525776" />
     <state width="1419" height="250" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1596959546840" />
     <state width="1419" height="250" key="GridCell.Tab.1.right/0.23.1920.992@0.23.1920.992" timestamp="1596285456427" />
-    <state x="221" y="61" key="SettingsEditor" timestamp="1598281356609">
+    <state x="221" y="61" key="SettingsEditor" timestamp="1598693698965">
       <screen x="0" y="23" width="1440" height="798" />
     </state>
-    <state x="221" y="61" key="SettingsEditor/0.23.1440.798@0.23.1440.798" timestamp="1598281356609" />
+    <state x="221" y="61" key="SettingsEditor/0.23.1440.798@0.23.1440.798" timestamp="1598693698965" />
     <state x="-1900" y="23" width="1896" height="1049" maximized="true" key="dock-window-1" timestamp="1596263156062">
       <screen x="-1920" y="23" width="1920" height="1057" />
     </state>

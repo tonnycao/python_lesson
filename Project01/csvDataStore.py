@@ -62,7 +62,7 @@ def drop_table():
 def csvdataStore():
     drop_table()
     create_table()
-    csv_file = r'/Users/jimmy/downloads/bmt_pp_gmacc_May20_CommaDelimited.csv'
+    csv_file = r'../gmacc.csv'
     data = readData(csv_file)
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
