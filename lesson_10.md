@@ -54,5 +54,18 @@
   export APP_CONFIG_FILE=/var/www/yourapp/config/production.py
   ```
 
-  
+
+- 表单
+- 数据库
+- 认证
+
+##### 参考
+
+http://www.pythondoc.com/flask-mega-tutorial/index.html
+
+http://www.pythondoc.com/flask-restful/third.html
+
+https://itsdangerous.palletsprojects.com/en/1.1.x/signer/
+
+https://flask-restful.readthedocs.io/en/latest/
 
