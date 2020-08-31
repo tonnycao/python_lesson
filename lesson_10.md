@@ -206,6 +206,40 @@
           return pwd_context.verify(password, self.password_hash)
   ```
 
+
+
+##### Git 
+
+- git init
+
+- git add 
+
+- git commit
+
+- git pull
+
+- git push
+
+- git clone HTTPS/SSH
+
+  ```
+  # 克隆到lesson目录
+  git clone https://github.com/tonnycao/python_lesson.git lesson
+  # 下载到默认 python_lesson 目录
+  git clone git@github.com:tonnycao/python_lesson.git
+  ```
+
+  
+
+- git remote
+
+  ```
+  git remote add origin git_url
+  git remote show origin
+  git remote -v
+  
+  ```
+
   
 
 ##### 参考
