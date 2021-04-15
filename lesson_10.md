@@ -183,7 +183,7 @@
   #1. 认证的几种方式
   HTTP BASIC Authentication user:pass
   COOKIE and Session 
-  Token HTTP Header or HTTP body playload
+  Token HTTP Header or HTTP body playload jwt
   OAuth 认证
   
   #2 常见方式 COOKIE and Session 

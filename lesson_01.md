@@ -41,7 +41,7 @@ const.py
 
 a.py
 
-import const.py
+import const
 
 const.PI
 
@@ -100,6 +100,8 @@ fruits = ["apple", "mango", "orange"] #list
 numbers = (1, 2, 3) #tuple
 alphabets = {'a':'apple', 'b':'ball', 'c':'cat'} #dictionary
 vowels = {'a', 'e', 'i' , 'o', 'u'} #set
+list dict set 可变 tuple 不可
+https://docs.python.org/zh-cn/3.7/tutorial/index.html
 ```
 
 ### 数据类型 ###
@@ -128,9 +130,9 @@ vowels = {'a', 'e', 'i' , 'o', 'u'} #set
 
 - 类型判断
 ```
-type()
+type(p)
 
-isinstance()
+isinstance(p, object)
 ```
 
 - 整型与字符串
@@ -178,6 +180,12 @@ modf(x)	返回x的整数部分与小数部分，两部分的数值符号与x相�
 pow(x, y)	x**y 运算后的值。
 round(x [,n])	返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。
 sqrt(x)	返回数字x的平方根
+
+decimal(12, 4) 元
+int(12) 分
+
+alipay
+wxpay int 分
 ```
 
 #### 中文编码 ####

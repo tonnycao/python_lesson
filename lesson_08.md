@@ -68,6 +68,12 @@
   
   # 查看可升级的包
   pip3 list -o
+  
+  # 按照jupyter 
+  pip3 install jupyter
+  
+  pip3 install jupyter-1.0.0-py2.py3-none-any.whl 
+  jupyter notebook
   ```
 
   
@@ -100,6 +106,7 @@
 
   ```
   pip3 freeze > requirements.txt
+  pip3 install -r requirements
   #
   export PYTHONDONTWRITEBYTECODE=1
   export PYTHONPYCACHEPREFIX=/tmp
@@ -110,8 +117,8 @@
   #4 之后若再次执行该脚本，它先检查【本地是否有上述字节码文件】和【该字节码文件的修改时间是否与其脚本一致】。是就直接执行，否则重复#上述步骤。
   #不产生 __pycache__ 目录
   python3 -B foo.py
-  ```
-
+```
+  
   
 
 ###### 最小的项目
