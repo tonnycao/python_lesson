@@ -242,7 +242,7 @@ def function_name(parameters):
   def person(name, age, kw):
       print('name:', name, 'age:', age, 'other:', kw)
       
-  def zidian(kwargs):
+  def zidian(**kwargs):
       print(kwargs)
 
   zidian(a=1,b=2,c=3)
@@ -267,8 +267,6 @@ def function_name(parameters):
   def factorial(x):
       """This is a recursive function
       to find the factorial of an integer"""
-
-
   if x == 1:
       return 1
   else:
@@ -283,7 +281,7 @@ def function_name(parameters):
 
   ```python
 
-lambda [arg1 [,arg2, ... argN]] : expression
+  lambda [arg1 [,arg2, ... argN]] : expression
 
   double = lambda x: x * 2
   print(double(5))
@@ -355,20 +353,19 @@ lambda [arg1 [,arg2, ... argN]] : expression
 - 模块
 
   ```python
- 一般情况下一个python文件就是一个模块
+ #一般情况下一个python文件就是一个模块
 
-  引用模块
+  #引用模块
   import foo              # foo imported and bound locally
   import foo.bar.baz      # foo.bar.baz imported, foo bound locally
   import foo.bar.baz as fbb # foo.bar.baz imported and bound as fbb
   from foo.bar import baz  # foo.bar.baz imported and bound as baz
   from foo import attr    # foo imported and foo.attr bound as attr
-  from foo imort *
+  from foo import *
 
   如果标识符列表改为一个星号 ('*')，则在模块中定义的全部公有名称都将按 import 语句所在的作用域被绑定到局部命名空间。
 
-  定义模块
-
+#定义模块
 
 !/usr/bin/env python3
 
@@ -400,7 +397,7 @@ lambda [arg1 [,arg2, ... argN]] : expression
 
   ```
 
-目录和模块构成了包。目录中必须包含 init.py和子包或者模块文件。
+目录和模块构成了包。目录中必须包含 __init__.py和子包或者模块文件。
 引用方式
 from Game.Level import start
 start.select_difficulty(2)
