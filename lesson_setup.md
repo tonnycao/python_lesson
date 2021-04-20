@@ -15,11 +15,9 @@ brew install python3
 
 ```
   #pip 是一个 Python 包安装与管理工具 pip3 for python3
-  
   #install
   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   sudo python3 get-pip.py
-  
   # 查看版本
   pip3 --version
   
@@ -65,12 +63,6 @@ brew install python3
   
   # 查看可升级的包
   pip3 list -o
-  
-  # 按照jupyter 
-  pip3 install jupyter
-  
-  pip3 install jupyter-1.0.0-py2.py3-none-any.whl 
-  jupyter notebook
 ```
 ##### Virtual Env #####
 
@@ -117,4 +109,22 @@ https://www.jetbrains.com/pycharm/features/
 ```
 https://jupyter.org/install.html
 https://jupyter.org/documentation
+
+# pip 安装jupyter 
+pip install jupyter
+pip install jupyter-1.0.0-py2.py3-none-any.whl 
+jupyter notebook
+```
+
+##### git & github #####
+
+* git
+```
+https://git-scm.com/downloads
+https://git-scm.com/docs
+```
+* github
+```
+https://github.com/
+https://gitee.com/
 ```
