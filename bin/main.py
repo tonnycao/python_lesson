@@ -4,7 +4,8 @@ import time
 import codecs
 import math
 import sys
-
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/../")
 
 from parser.parser import Parser
 from parser.csv_parser import CsvParser

@@ -28,11 +28,6 @@ class TxtParser(Parser):
         return data
 
     def chunk_reader(self, max_rows) -> List:
-<<<<<<< HEAD
-        with open(self.path) as f:
-            for piece in self.read_in_chunks(f):
-                pass
-=======
         data = []
         with open(self.path) as f:
             if TxtParser.offset:
@@ -51,7 +46,6 @@ class TxtParser(Parser):
         TxtParser.count += 1
 
         return data
->>>>>>> 4ef0d61c7b95ebb4173b0f6b6344272a771795be
 
     @staticmethod
     def read_in_chunks(file_object, chunk_size=1024):
@@ -60,8 +54,3 @@ class TxtParser(Parser):
             if not data:
                 break
             yield data
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 4ef0d61c7b95ebb4173b0f6b6344272a771795be
