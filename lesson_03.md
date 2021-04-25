@@ -2,7 +2,7 @@
 
 
 ##### Python Operators ######
-```
+```python
 
 Operator	Meaning	Example
 +	Add two operands or unary plus	x + y+ 2
@@ -33,7 +33,6 @@ print('x // y =',x//y)
 
 # Output: x ** y = 50625
 print('x ** y =',x**y)
-
 
 
 Operator	Meaning	Example
@@ -83,6 +82,9 @@ print('not x is',not x)
 
 
 Operator	Meaning	Example
+x = 10
+y = 12
+
 &	Bitwise AND	x & y = 0 (0000 0000)
 |	Bitwise OR	x | y = 14 (0000 1110)
 ~	Bitwise NOT	~x = -11 (1111 0101)
@@ -342,7 +344,7 @@ for r in result:
    
 ```
 
-##### date #####
+##### Date time #####
 
 ```
 import datetime
@@ -383,8 +385,6 @@ today = date.today()
 print("Current year:", today.year)
 print("Current month:", today.month)
 print("Current day:", today.day)
-
-
 
 from datetime import time
 

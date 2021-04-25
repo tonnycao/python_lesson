@@ -132,7 +132,7 @@
 - 序列化
 
   ```
-  obj = dict(name='曹建', age=30)
+  obj = dict(name='zhangsan', age=30)
   ```
 
   
