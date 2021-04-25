@@ -42,6 +42,9 @@ s = 'ABCDEFG'[:3]
 from collections.abc import Iterable
 isinstance(obj, Iterable) # obj 是否可迭代
 
+__iter__
+__getitem__
+
 for i, value in enumerate(['A', 'B', 'C']):
 ...     print(i, value)
 ```
@@ -89,6 +92,7 @@ L = ['Hello', 'World', 'IBM', 'Apple']
 def reverse(data):
     for index in range(len(data)-1, -1, -1):
         yield data[index]
+        
 for char in reverse('golf'):
     print(char)
     
@@ -146,6 +150,24 @@ while True:
     except StopIteration:
         # 遇到StopIteration就退出循环
         break
+        
+from collections.abc import Iterator
+class Fab(Iterator): 
+ def __init__(self, max): 
+   self.max = max
+   self.n, self.a, self.b = 0, 0, 1
+ 
+ def __iter__(self): 
+   return self
+ 
+ def __next__(self): 
+   if self.n < self.max: 
+     r = self.b 
+     self.a, self.b = self.b, self.a + self.b 
+     self.n = self.n + 1
+     return r 
+   raise StopIteration()
+ 
 ```
 
 
