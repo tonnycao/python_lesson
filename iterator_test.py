@@ -8,10 +8,13 @@
 from collections.abc import Iterator
 
 
-class Fab(Iterator):
+class Fab(object):
     def __init__(self, max):
         self.max = max
         self.n, self.a, self.b = 0, 0, 1
+
+    def __iter__(self):
+        return self
 
     def __next__(self):
         if self.n < self.max:
@@ -23,4 +26,4 @@ class Fab(Iterator):
 
 if __name__ == '__main__':
     for key in Fab(5):
-        print(key)
+            print(key)
