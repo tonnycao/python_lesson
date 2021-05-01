@@ -387,6 +387,9 @@ def log(func):
   
 
 def log(func):
+  '''
+  this is log
+  '''
    @functools.wraps(func)
    def wrapper(*args, **kw):
        print('call %s():' % func.__name__)
@@ -395,6 +398,9 @@ def log(func):
   
 @log
 def now():
+  '''
+  this is now
+  '''
     print('2020-7-28')
 
 

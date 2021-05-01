@@ -33,7 +33,8 @@ class Employee(object):
       Employee.empCount += 1
       
    #成员函数
-   def displayCount(self):
+   @classmethod
+   def displayCount(cls):
      print("Total Employee %d" % Employee.empCount)
      
    #成员函数
@@ -179,6 +180,7 @@ class SubClassName (ParentClass1[, ParentClass2, ...]):
  
 class Child(Parent): # 定义子类
    def __init__(self):
+   		Child.super().__init__()
       print("调用子类构造方法")
  
    def childMethod(self):

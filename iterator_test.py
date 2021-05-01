@@ -25,5 +25,10 @@ class Fab(object):
         raise StopIteration()
 
 if __name__ == '__main__':
-    for key in Fab(5):
-            print(key)
+    s = next(Fab(5))
+    s = next(Fab(5))
+    s = next(Fab(5))
+    s = next(Fab(5))
+    print(s)
+    # for key in Fab(5):
+    #         print(key)
