@@ -77,7 +77,7 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
   BIGINT(size)	带符号的范围是-9223372036854775808到9223372036854775807，无符号的范围是0到18446744073709551615。size 默认为 20
   FLOAT(size,d)	带有浮动小数点的小数字。在 size 参数中规定显示最大位数。在 d 参数中规定小数点右侧的最大位数。
   DOUBLE(size,d)	带有浮动小数点的大数字。在 size 参数中规显示定最大位数。在 d 参数中规定小数点右侧的最大位数。
-  DECIMAL(size,d)	作为字符串存储的 DOUBLE 类型，允许固定的小数点。在 size 参数中规定显示最大位数。在 d 参数中规定小数点右侧的最大位数。
+  DECIMAL(12,4)	作为字符串存储的 DOUBLE 类型，允许固定的小数点。在 size 参数中规定显示最大位数。在 d 参数中规定小数点右侧的最大位数。
   ```
 
   
@@ -133,11 +133,15 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
   CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));
   DROP TABLE table;
   DROP TABLE IF EXISTS table;
+  
   ALTER TABLE table MODIFY field1 type1
   ALTER TABLE table MODIFY field1 type1 FIRST
   ALTER TABLE table MODIFY field1 type1 AFTER another_field
+  
   ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST
   
+  truncate table_name
+  drop table_name
   ```
 
   
@@ -148,7 +152,12 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
   SELECT * FROM table;
   SELECT * FROM table1, table2;
   SELECT field1, field2 FROM table1, table2;
-  SELECT ... FROM ... WHERE condition
+  page_size = 10;
+  page = 2;
+  offset = (page-1)*page_size;
+  
+  SELECT ... FROM ... WHERE condition order by id desc limit offset, page_size;
+  
   ```
 
   
@@ -156,8 +165,9 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
 * SQL 可在数据库中插入新的记录。
 
   ```
-  INSERT INTO table1 (field1, field2) VALUES (value1, value2);
+  INSERT INTO table1 (field1, field2) VALUES (value1, value2),(value1, value2),(value1, value2);
   
+  INSERT INTO table1 VALUES (value1, value2);
   ```
 
   
@@ -233,9 +243,9 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
 
   
 
-
-
 #### 参考
+
+* http://c.biancheng.net/view/8264.html
 
 * https://www.guru99.com/er-diagram-tutorial-dbms.html
 
