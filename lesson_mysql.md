@@ -26,7 +26,7 @@ INNODB：行锁级，支持事务，适合读多写多的项目。
 
 ![mysql_query](./images/mysql_query.jpg)
 
-##### 索引
+##### 事务与索引
 
 ```
 MySQL 事务主要用于处理操作量大，复杂度高的数据。
@@ -90,9 +90,11 @@ CREATE INDEX idx_name ON mytable(username,age);
 
 ```
 FIND_IN_SET(s1,s2)
+
 REPLACE(s,s1,s2)
 SUBSTR(s, start, length)
 TRIM(s)
+
 MAX(expression)
 MIN(expression)
 SUM()
@@ -126,7 +128,7 @@ pip3 install PyMySQL
 import pymysql
 
 # 打开数据库连接
-db = pymysql.connect("localhost","root","rootroot","test" )
+db = pymysql.connect("localhost","root","rootroot","test")
  
 # 使用 cursor() 方法创建一个游标对象 cursor
 cursor = db.cursor()
@@ -159,7 +161,7 @@ class MySql:
                                        charset=self.charset)
         self.cursor = self.connect.cursor()
 
-    def execute_sql_with_one_data(self, sql):
+    def get_one_data(self, sql):
         row = None
         try:
             self.cursor.execute(sql)
@@ -171,7 +173,7 @@ class MySql:
             self.connect.rollback()
         return row
 
-    def execute_sql_with_many_data(self, sql, size=100):
+    def query_many_data(self, sql, size=100):
         rows = None
         try:
             self.cursor.execute(sql)
@@ -183,7 +185,7 @@ class MySql:
             self.connect.rollback()
         return rows
 
-    def execute_sql_with_id(self, sql):
+    def insert_with_id(self, sql):
         last_id = 0
         try:
             if self.cursor.execute(sql):
@@ -196,7 +198,7 @@ class MySql:
             self.connect.rollback()
         return last_id
 
-    def execute_sql_without_data(self, sql):
+    def update_data(self, sql):
         try:
             if self.cursor.execute(sql):
                 self.connect.commit()
@@ -260,6 +262,17 @@ session.close()
 ```
 
 
+
+#### 参考
+
+* https://dev.mysql.com/doc/refman/8.0/en/optimization.html
+
+* https://z.itpub.net/article/detail/108D0B57B3FCAFCAF8BF3B373469F4EF
+* https://pymysql.readthedocs.io/
+* https://github.com/PyMySQL/PyMySQL/
+* https://docs.sqlalchemy.org/en/14/tutorial/index.html
+* https://zhuanlan.zhihu.com/p/27400862
+* https://mariadb.com/docs/clients/connector-python/
 
 ##### 作业
 
