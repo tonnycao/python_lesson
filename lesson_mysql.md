@@ -88,17 +88,30 @@ CREATE INDEX idx_name ON mytable(username,age);
 
 ##### 函数
 
-```
+```sql
 FIND_IN_SET(s1,s2)
+select FIND_IN_SET(set_field, "ENUM_VALUE") form table_name;
 
 REPLACE(s,s1,s2)
+select REPLACE(field_name, "abc", "ABC") form table_name;
+
 SUBSTR(s, start, length)
+select SUBSTR(field_name, 1, length(field_name)) form table_name;
+
 TRIM(s)
+select TRIM(field_name) as max_id form table_name;
 
 MAX(expression)
+select MAX(id) as max_id form table_name;
+
 MIN(expression)
+select MIN(id) as min_id form table_name;
+
 SUM()
+select sum(field_name) as total form table_name;
+
 COUNT()
+select count(*) as total form table_name;
 ```
 
 
