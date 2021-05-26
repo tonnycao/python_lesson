@@ -13,7 +13,7 @@
 - 单线程，阻塞执行，部署续作WSGI容器，例如Gunicorn 或 uWSGI。
 
 ###### 环境
-  
+
 
 ###### 最小的项目
 
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 # mysite_nginx.conf
 
 # the upstream component nginx needs to connect to
-upstream flask {
+upstream flask_app {
     # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
     server 127.0.0.1:8001; # for a web port socket (we'll use this first)
 }
@@ -65,20 +65,20 @@ server {
     location /media  {
         alias /path/to/your/mysite/media;  # your flask project's media files - amend as required
     }
-
+		
     location /static {
         alias /path/to/your/mysite/static; # your flask project's static files - amend as required
     }
 
     # Finally, send all non-media requests to the Django server.
     location / {
-        uwsgi_pass  django;
+        uwsgi_pass  flask_app;
         include     /path/to/your/mysite/uwsgi_params; # the uwsgi_params file you installed
     }
 }
 
 #uwsgi
-uwsgi --http-socket :3031 --wsgi-file myflaskapp.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:9191 --buffer-size=25530
+uwsgi --http-use-socket 127.0.0.1:3031 --wsgi-file myflaskapp.py --callable app --processes 4 --threads 2 --stats 127.0.0.1:9191 --buffer-size=25530
 
 #yourfile.ini
 [uwsgi]

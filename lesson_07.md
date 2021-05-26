@@ -423,6 +423,8 @@ ret1 = session.query(Tag).filter_by(id=22).first()
 ret2 = session.query(Tag).filter(Tag.id > 1, Tag.title == "LOL").all()
 ret3 = session.query(Tag).filter(Tag.id.between(22, 24)).all()
 ret4 = session.query(Tag).filter(~Tag.id.in_([22, 24])).first()
+select * from tag where id not in (22,24) order by id desc limit 1;
+
 from sqlalchemy import and_, or_
 ret5 = session.query(Tag).filter(and_(Tag.id > 1, Tag.title == "LOL")).first()
 ret6 = session.query(Tag).filter(or_(Tag.id > 1, Tag.title == "LOL")).first()

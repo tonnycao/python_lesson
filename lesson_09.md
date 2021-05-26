@@ -225,6 +225,5 @@ db = SQLAlchemy(app)
 ###### 参考
 
 https://flask-sqlalchemy.palletsprojects.com/en/2.x/
-
 https://exploreflask.com/en/latest/
 

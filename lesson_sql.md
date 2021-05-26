@@ -246,9 +246,7 @@ RDBMS 指关系型数据库管理系统，全称 Relational Database Management 
 #### 参考
 
 * http://c.biancheng.net/view/8264.html
-
 * https://www.guru99.com/er-diagram-tutorial-dbms.html
-
 * https://devhints.io/mysql
 * https://dev.mysql.com/doc/refman/8.0/en/
 * https://pymysql.readthedocs.io/en/latest/

@@ -4,14 +4,14 @@
 ##### Python Operators ######
 ```python
 
-Operator	Meaning	Example
-+	Add two operands or unary plus	x + y+ 2
--	Subtract right operand from the left or unary minus	x - y- 2
-*	Multiply two operands	x * y
-/	Divide left operand by the right one (always results into float)	x / y
-%	Modulus - remainder of the division of left operand by the right	x % y (remainder of x/y)
-//	Floor division - division that results into whole number adjusted to the left in the number line	x // y
-**	Exponent - left operand raised to the power of right	x**y (x to the power y)
+#Operator	Meaning	Example
+#+	Add two operands or unary plus	x + y+ 2
+#-	Subtract right operand from the left or unary minus	x - y- 2
+#*	Multiply two operands	x * y
+#/	Divide left operand by the right one (always results into float)	x / y
+#%	Modulus - remainder of the division of left operand by the right	x % y (remainder of x/y)
+#//	Floor division - division that results into whole number adjusted to the left in the number line	x // y
+#**	Exponent - left operand raised to the power of right	x**y (x to the power y)
 
 x = 15
 y = 4
@@ -35,13 +35,13 @@ print('x // y =',x//y)
 print('x ** y =',x**y)
 
 
-Operator	Meaning	Example
->	Greater than - True if left operand is greater than the right	x > y
-<	Less than - True if left operand is less than the right	x < y
-==	Equal to - True if both operands are equal	x == y
-!=	Not equal to - True if operands are not equal	x != y
->=	Greater than or equal to - True if left operand is greater than or equal to the right	x >= y
-<=	Less than or equal to - True if left operand is less than or equal to the right	x <= y
+#Operator	Meaning	Example
+#>	Greater than - True if left operand is greater than the right	x > y
+#<	Less than - True if left operand is less than the right	x < y
+#==	Equal to - True if both operands are equal	x == y
+#!=	Not equal to - True if operands are not equal	x != y
+#>=	Greater than or equal to - True if left operand is greater than or equal to the right	x >= y
+#<=	Less than or equal to - True if left operand is less than or equal to the right	x <= y
 
 
 x = 10
@@ -66,10 +66,10 @@ print('x >= y is',x>=y)
 print('x <= y is',x<=y)
 
 
-Operator	Meaning	Example
-and	True if both the operands are true	x and y
-or	True if either of the operands is true	x or y
-not	True if operand is false (complements the operand)	not x
+#Operator	Meaning	Example
+#and	True if both the operands are true	x and y
+#or	True if either of the operands is true	x or y
+#not	True if operand is false (complements the operand)	not x
 
 x = True
 y = False
@@ -81,36 +81,36 @@ print('x or y is',x or y)
 print('not x is',not x)
 
 
-Operator	Meaning	Example
-x = 10
-y = 12
+#Operator	Meaning	Example
+#x = 10
+#y = 12
 
-&	Bitwise AND	x & y = 0 (0000 0000)
-|	Bitwise OR	x | y = 14 (0000 1110)
-~	Bitwise NOT	~x = -11 (1111 0101)
-^	Bitwise XOR	x ^ y = 14 (0000 1110)
->>	Bitwise right shift	x >> 2 = 2 (0000 0010)
-<<	Bitwise left shift	x << 2 = 40 (0010 1000)
+#&	Bitwise AND	x & y = 0 (0000 0000)
+#|	Bitwise OR	x | y = 14 (0000 1110)
+#~	Bitwise NOT	~x = -11 (1111 0101)
+#^	Bitwise XOR	x ^ y = 14 (0000 1110)
+#>>	Bitwise right shift	x >> 2 = 2 (0000 0010)
+#<<	Bitwise left shift	x << 2 = 40 (0010 1000)
 
-Operator	Example	Equivalent to
-=	x = 5	x = 5
-+=	x += 5	x = x + 5
--=	x -= 5	x = x - 5
-*=	x *= 5	x = x * 5
-/=	x /= 5	x = x / 5
-%=	x %= 5	x = x % 5
-//=	x //= 5	x = x // 5
-**=	x **= 5	x = x ** 5
-&=	x &= 5	x = x & 5
-|=	x |= 5	x = x | 5
-^=	x ^= 5	x = x ^ 5
->>=	x >>= 5	x = x >> 5
-<<=	x <<= 5	x = x << 5
+#Operator	Example	Equivalent to
+#=	x = 5	x = 5
+#+=	x += 5	x = x + 5
+#-=	x -= 5	x = x - 5
+#*=	x *= 5	x = x * 5
+#/=	x /= 5	x = x / 5
+#%=	x %= 5	x = x % 5
+#//=	x //= 5	x = x // 5
+#**=	x **= 5	x = x ** 5
+#&=	x &= 5	x = x & 5
+#|=	x |= 5	x = x | 5
+#^=	x ^= 5	x = x ^ 5
+#>>=	x >>= 5	x = x >> 5
+#<<=	x <<= 5	x = x << 5
 
 
-Operator	Meaning	Example
-is	True if the operands are identical (refer to the same object)	x is True
-is not	True if the operands are not identical (do not refer to the same object)
+#Operator	Meaning	Example
+#is	True if the operands are identical (refer to the same object)	x is True
+#is not	True if the operands are not identical (do not refer to the same object)
 
 x1 = 5
 y1 = 5
@@ -129,9 +129,9 @@ print(x2 is y2)
 print(x3 is y3)
 
 
-Operator	Meaning	Example
-in	True if value/variable is found in the sequence	5 in x
-not in	True if value/variable is not found in the sequence	5 not in x
+#Operator	Meaning	Example
+#in	True if value/variable is found in the sequence	5 in x
+#not in	True if value/variable is not found in the sequence	5 not in x
 
 x = 'Hello world'
 y = {1:'a',2:'b'}
