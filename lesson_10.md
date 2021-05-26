@@ -4,7 +4,7 @@
 
 - 目录结构
 
-  ```python
+  ```
   config.py #配置模块
   requirements.txt #依赖库列表
   run.py #入口文件
@@ -23,7 +23,7 @@
 
 - 项目配置
 
-  ```python
+  ```
   # 1.简单模式
   
   #环境变量
@@ -57,7 +57,7 @@
 
 - 表单
 
-  ```python
+  ```
   #1. 安装与配置
   #WTForms的flask扩展
   pip3 install Flask-WTF
@@ -127,7 +127,7 @@
 
 - 数据库
 
-  ```python
+  ```
   #1. 安装与配置
   pymysql
   sqlalchemy
@@ -179,12 +179,12 @@
 
 - 认证
 
-  ```python
+  ```
   #1. 认证的几种方式
-  HTTP BASIC Authentication user:pass
-  COOKIE and Session 
-  Token HTTP Header or HTTP body playload jwt
-  OAuth 认证
+  #HTTP BASIC Authentication user:pass
+  #COOKIE and Session 
+  #Token HTTP Header or HTTP body playload jwt
+  #OAuth 认证
   
   #2 常见方式 COOKIE and Session 
   import hashlib
@@ -193,7 +193,7 @@
   password = md5.hexdigest()
   
   #3 使用 PassLib
-  pip3 install PassLib
+  #pip3 install PassLib
   
   from passlib.apps import custom_app_context as pwd_context
   

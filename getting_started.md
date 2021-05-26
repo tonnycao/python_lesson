@@ -116,12 +116,14 @@
 #### 3. web
      flask
      djange
+     fastapi
 ### 环境搭建 Setup
 #### Python不同环境安装
      windows mac linux
 #### 编辑器
      pycharm
-#### Git 
+#### Git 版本控制
+#### Github 代码管理
 
 
 
