@@ -27,7 +27,16 @@
   # 1.简单模式
   
   #环境变量
+  pip install python-dotenv
+  .env .flaskenv
+  FLASK_SKIP_DOTENV=1
+  FLASK_RUN_CERT - A certificate file for so your app can be run with HTTPS.
+  FLASK_RUN_KEY - The key file for your cert.
+  FLASK_RUN_EXTRA_FILES - A list of files that will be watched by the reloader in addition to the Python modules.
+  FLASK_* 
+  
   app.config.from_object(os.environ['APP_SETTINGS'])
+  
   #类文件
   app.config.from_object('config')
   #文件
@@ -206,19 +215,11 @@
           return pwd_context.verify(password, self.password_hash)
   ```
 
- 
+
 ##### 参考
 
-http://www.pythondoc.com/flask-mega-tutorial/index.html
+https://flask.palletsprojects.com/en/1.1.x/cli/
 
-http://wtforms.simplecodes.com/docs/1.0.1/ext.html#id3
-
-https://flask-wtf.readthedocs.io/en/latest/
-
-http://www.pythondoc.com/flask-restful/third.html
-
-https://itsdangerous.palletsprojects.com/en/1.1.x/signer/
-
-https://flask-restful.readthedocs.io/en/latest/
+https://prettyprinted.com/tutorials/automatically_load_environment_variables_in_flask
 
 https://owasp.org/www-community/attacks/csrf
